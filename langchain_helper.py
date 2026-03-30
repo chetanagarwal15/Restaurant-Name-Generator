@@ -1,9 +1,10 @@
 from langchain_openai import ChatOpenAI
 import os
 from langchain_core.prompts import PromptTemplate
+import streamlit as st
 
 llm = ChatOpenAI(
-    groq_api_key = os.getenv("GROQ_API_KEY"),
+    openai_api_key=st.secrets["GROQ_API_KEY"],  # ✅ FIXED
     openai_api_base="https://api.groq.com/openai/v1",
     model_name="llama-3.3-70b-versatile",
     temperature=0.6,
